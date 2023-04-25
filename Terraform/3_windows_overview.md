@@ -82,15 +82,7 @@ gcloud auth application-default set-quota-project ${PROJECT_NAME}
 terraform init
 ```
 
-Optionally you can configure your terraform files (`variables.tf`) to include your project id:
-
-```bash
-variable "project" {
-  description = "Your GCP Project ID"
-  default = "ny-rides-alexey"
-  type = string
-}
-```
+Optionally you can configure your terraform files (`variables.tf`) to include your project id
 
 * Now [follow the instructions](1_terraform_overview.md#execution-steps)
   * Run `terraform plan`
@@ -102,6 +94,6 @@ If you get an error like that:
 > storage.buckets.create access to the Google Cloud project., forbidden
 
 
-Then you need to give your service account all the permissions. Make sure you follow the instructions in the videos 
+Then you need to give your service account all the permissions
 
 * You can also use [this file](https://docs.google.com/document/d/e/2PACX-1vSZapy7gIj0TP-EFzub2OpAlAkuifGEVJ4XpkA1RvxZ45NjiQi29b6OhLuetdXXHWAn2lbbKxnbzMdd/pub), but it doesn't list all the required permissions

@@ -1,6 +1,5 @@
 ## Terraform Overview
 
-[Video](https://www.youtube.com/watch?v=18jIzE41fJ4&list=PL3MmuxUbc_hJed7dXYoJw8DoCuVHhGEQb&index=2)
 
 ### Concepts
 
@@ -54,10 +53,6 @@
     * Asks for approval to the proposed plan, and applies changes to cloud
 4. `terraform destroy`
     * Removes your stack from the Cloud
-
-
-### Terraform Workshop to create GCP Infra
-Continue [here](./terraform): `week_1_basics_n_setup/1_terraform_gcp/terraform`
 
 
 ### References
