@@ -1,4 +1,4 @@
 {{ config(materialized = "view") }}
 
-select * from {{ ref('us_accidents') }}
+select * from {{ source('staging','us_accidents') }}
 limit 50
