@@ -7,6 +7,7 @@ sources:
 
     tables:
       - name: us_accidents
+      - name: us_accidents_external_table
       - name: us_accidents_partitioned_clustered
 
 models:
