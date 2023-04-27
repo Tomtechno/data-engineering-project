@@ -8,3 +8,7 @@ sources:
     tables:
       - name: us_accidents
       - name: us_accidents_partitioned_clustered
+
+models:
+    - name: us_accidents2
+      description: Basic data with us accidents
