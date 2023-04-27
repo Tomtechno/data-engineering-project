@@ -4,7 +4,6 @@
     )
 }}
 
-
 select
     cast(state as string) as state,
     cast(ID as string) as accident_id,
@@ -14,6 +13,5 @@ select
     cast(description as string) as description,
     cast(weather_condition as string) as weather_condition
     avg(severity_id as float) as severity_average
-
 from {{ source("staging", "us_accidents") }}
 group by state
