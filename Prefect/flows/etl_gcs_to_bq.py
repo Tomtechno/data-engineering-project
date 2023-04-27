@@ -19,25 +19,18 @@ def extract_from_gcs() -> Path:
 @task()
 def write_bq(df: pd.DataFrame) -> None:
     """Write DataFrame to BiqQuery"""
-    gcp_credentials_block = GcpCredentials.load("project-gcp-creds")
-    schema = [
-        bigquery.SchemaField('ID', field_type="STRING")
-        bigquerySchemaField('Severity', field_type="INTEGER")
-        bigquerySchemaField('Start_Date', field_type="TIMESTAMP")
-        bigquerySchemaField('End_Date', field_type="TIMESTAMP")
-        bigquerySchemaField('Description', field_type="STRING")
-        bigquerySchemaField('State', field_type="STRING")
-        bigquerySchemaField('Weather_Condition', field_type="STRING")
-    ]
+    gcp_credentials_block = GcpCredentials.load("project-gcp-creds") 
+    #schema = [bigquery.SchemaField('ID', field_type="STRING"), bigquery.SchemaField('Severity', field_type="INTEGER"), bigquery.SchemaField('Description', field_type="STRING"), bigquery.SchemaField('State', field_type="STRING"), bigquery.SchemaField('Weather_Condition', field_type="STRING"), bigquery.SchemaField('Start_Date', field_type="TIMESTAMP"), bigquery.SchemaField('End_Date', field_type="TIMESTAMP")]
     df.to_gbq(
-        destination_table="",
-        project_id="",
+        destination_table="de_project_dataset.us_accidents",
+        project_id="data-engineer-project-384504",
         credentials=gcp_credentials_block.get_credentials_from_service_account(),
         chunksize=500_000,
         if_exists="append",
-        table_schema=schema
+        table_schema=None
     )
-    print(f"Data loaded to big query, table: {}")
+
+
 
 @flow()
 def etl_gcs_to_bq():

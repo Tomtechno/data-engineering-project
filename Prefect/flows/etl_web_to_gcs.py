@@ -10,8 +10,8 @@ import numpy as np
 def extract_dataset(dataset_url: str) -> pd.DataFrame:
     """Download US Accidentes dataset"""
     print(f"Reading file {dataset_url}")
-    os.environ['KAGGLE_USERNAME'] = ""
-    os.environ['KAGGLE_KEY'] = ""
+    os.environ['KAGGLE_USERNAME'] = "tomasuzquiano"
+    os.environ['KAGGLE_KEY'] = "2de3d8f0f28aa67bd713cd78ba25f683"
     download_dataset = os.system("mkdir dataset_folder;cd dataset_folder;kaggle datasets download -d 'sobhanmoosavi/us-accidents'")
     df = pd.read_csv('dataset_folder/us-accidents.zip', compression='zip')
 
