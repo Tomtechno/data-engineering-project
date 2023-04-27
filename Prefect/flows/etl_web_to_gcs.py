@@ -33,14 +33,15 @@ def clean_dataset(df: pd.DataFrame) -> pd.DataFrame:
     """Fix dtype issues"""
     df.ID = df.ID.astype('str')
     df.Severity = df.Severity.astype('int')
-    df.Start_Date = pd.to_datetime(df['Start_Time']).dt.strftime('%Y-%m-%d')
-    df.End_Date = pd.to_datetime(df['End_Time']).dt.strftime('%Y-%m-%d')
+    #df['Start_Date'] = pd.to_datetime(df['Start_Time']).dt.strftime('%Y-%m-%d')
+    #df['End_Date'] = pd.to_datetime(df['End_Time']).dt.strftime('%Y-%m-%d')
+    df['Start_Time'] = df['Start_Time'].str.slice(0, 10)
+    df['End_Time'] = df['End_Time'].str.slice(0, 10)
     df.Description = df.Description.astype('str')
     df.State = df.State.astype('str')
     df.Weather_Condition = df.Weather_Condition.astype('str')
     
-    df.drop(['Start_Time','End_Time'], axis="columns", inplace=True)
-
+    #df = df.drop(['Start_Time','End_Time'], axis=1)
     """Print some important data"""
     print(df.head(2))
     print(f"columns: {df.dtypes}")
