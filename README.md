@@ -19,16 +19,17 @@ Overall, understanding the trends and patterns of car accidents in the USA is es
 In the following link you dive into the United States driving statistics.
 - [Driving statistics](https://driving-tests.org/driving-statistics/)
 
-## Instructors
 
+## Instructors
+I appreciate the opportunity to attend this workshop. I am forever thankful for this opportunity.
 - [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
 - [Sejal Vaidya](https://linkedin.com/in/vaidyasejal)
 - [Victoria Perez Mola](https://www.linkedin.com/in/victoriaperezmola/)
 - [Kalise Richmond](https://www.linkedin.com/in/kaliserichmond/)
 - [Jeff Hale](https://www.linkedin.com/in/-jeffhale/)
 - [Alexey Grigorev](https://linkedin.com/in/agrigorev)
-
 Please reach out to [alexey@datatalks.club](alexey@datatalks.club)
 
+If you want to know more about the workshop:
 - Register in [DataTalks.Club's Slack](https://datatalks.club/slack.html)
 - Join the [`#course-data-engineering`](https://app.slack.com/client/T01ATQK62F8/C01FABYF2RG) channel
