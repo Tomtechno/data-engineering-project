@@ -28,7 +28,7 @@ In the following link you can dive into the United States driving statistics.
 
 
 ## Structure of the production table
-In order to have a good performance it I get rid of the unnecesary features. 
+In order to have a good performance I got rid of the unnecesary features. 
 | # |Feature              |Description                                         |
 |---|---------------------|-----------------------------------------------------|
 | 1 | ID                  | Identifier of the accident record                   |
