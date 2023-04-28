@@ -1,4 +1,4 @@
-# US Accidents (2016 - 2021)
+# US Accidents (2016 - 2021) - UNFINISHED FOR NOW
 A Countrywide Traffic Accident Dataset (2016 - 2021)
 
 ![Car accident](https://user-images.githubusercontent.com/69020112/235061206-d1b063b6-147d-4be3-8dc4-db6ea9c50eb5.jpg)
@@ -48,6 +48,70 @@ In order to have a good performance I got rid of the unnecesary features.
 - Data transformation: `Data Build Tool (DBT)`
 - Data visualization: `Google Data Studio (GDS)`
 - Orchestration: `Prefect`
+
+## Reproduce it yourself
+PREREQUISITES
+* Make sure you have docker, make and git installed in your pc
+* Git clone the repo
+```bash
+https://github.com/Tomtechno/data-engineering-zoomcamp.git
+```
+* Make a virtual environment with python and install prefect. I chose python 3.9 as it is the recommended version
+```bash
+conda create -n projectEnv python=3.9 prefect
+```
+* Activate your new env
+```bash
+conda activate projectEnv
+```
+1. Setup your Google Cloud environment
+- Create a [Google Cloud Platform project](https://console.cloud.google.com/cloud-resource-manager)
+- Configure Identity and Access Management (IAM) for the service account. Go to "IAM & Admin > Service Account" and create an account giving it the following privileges: BigQuery Admin, Storage Admin and Storage Object Admin
+- Go to Actions and click on "Manage keys > Add Key > Create New Key". Save the key as a JSON file to your project directory e.g. to `~/.gc/<credentials>`
+- Install the [Google Cloud SDK](https://cloud.google.com/sdk/docs/install-sdk)
+- Let the [environment variable point to your GCP key](https://cloud.google.com/docs/authentication/application-default-credentials#GAC), authenticate it and refresh the session token
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=<path_to_your_credentials>.json
+gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
+gcloud auth application-default login
+```
+2. Install all required dependencies into your environment
+```bash
+pip install -r requirements.txt
+```
+3. Setup your infrastructure
+- Assuming you are using Linux AMD64 run the following commands to install Terraform - if you are using a different OS please choose the correct version [here](https://developer.hashicorp.com/terraform/downloads) and exchange the download link and zip file name
+
+```bash
+sudo apt-get install unzip
+cd ~/bin
+wget https://releases.hashicorp.com/terraform/1.4.1/terraform_1.4.1_linux_amd64.zip
+unzip terraform_1.4.1_linux_amd64.zip
+rm terraform_1.4.1_linux_amd64.zip
+```
+- To initiate, plan and apply the infrastructure, adjust and run the following Terraform commands
+```bash
+cd terraform/
+terraform init
+terraform plan -var="project=<your-gcp-project-id>"
+terraform apply -var="project=<your-gcp-project-id>"
+```
+4. Setup your orchestration
+- If you do not have a prefect workspace, sign-up for the prefect cloud and create a workspace [here](https://app.prefect.cloud/auth/login)
+- Create the [prefect blocks](https://docs.prefect.io/concepts/blocks/) via the cloud UI or adjust the variables in `/prefect/prefect_blocks.py` and run
+```bash
+python XXXXXXXXX 
+```
+- Adjust the keyfile location at `dbt/profiles.yml` to the path of your Google Cloud credentials JSON
+- To execute the flow, run the following commands in two different CL terminals
+```bash
+prefect agent start -q 'default'
+```
+```bash
+python prefect/etl_web_to_gcs.py
+python prefect/etl_gcs_to_bq.py
+```
+
 
 
 ## Instructors acknowledgements
