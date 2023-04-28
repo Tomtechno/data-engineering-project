@@ -1,7 +1,7 @@
 # US Accidents (2016 - 2021)
 A Countrywide Traffic Accident Dataset (2016 - 2021)
 
-
+![Car accident](https://user-images.githubusercontent.com/69020112/235061206-d1b063b6-147d-4be3-8dc4-db6ea9c50eb5.jpg)
 
 An estimated 42,915 people died in car crashes in the United States in 2021, a 10.5% increase from 2020. Knowing about car accidents in the USA is important for several reasons:
 
@@ -16,7 +16,7 @@ An estimated 42,915 people died in car crashes in the United States in 2021, a 1
 Overall, understanding the trends and patterns of car accidents in the USA is essential for promoting public safety, supporting economic growth, and improving the quality of life for all Americans.
 
 
-
+In the following link you dive into the United States driving statistics.
 - [Driving statistics](https://driving-tests.org/driving-statistics/)
 
 ## Instructors
