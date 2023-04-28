@@ -26,6 +26,30 @@ In the following link you can dive into the United States driving statistics.
 
 [To acces the dataset click here](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents)
 
+
+## Structure of the production table
+In order to have a good performance it I get rid of the unnecesary features. 
+| # |Feature              |Description                                         |
+|---|---------------------|-----------------------------------------------------|
+| 1 | ID                  | Identifier of the accident record                   |
+| 2 | Severity            | Shows the severity of the accident                  |
+| 3 | Start time          | Shows start time of the accident in local time zone |
+| 4 | End time            | Shows end time of the accident in local time zone   |
+| 5 | Description         | Shows a human provided description of the accident  |
+| 6 | State               | Shows the state in address field                    |
+| 7 | Weather conditions  | Shows the weather condition                         |
+
+
+## Tools & Technology
+- Infrastructure: `Terraform`
+- Cloud Service: `Google Cloud Platform (GCP)`
+- Data lake: `Google Cloud Storage (GCS)`
+- Data Warehouse: `Google Big Query (GBQ)`
+- Data transformation: `Data Build Tool (DBT)`
+- Data visualization: `Google Data Studio (GDS)`
+- Orchestration: `Prefect`
+
+
 ## Instructors acknowledgements
 I appreciate the opportunity to attend this workshop. I am forever thankful for this opportunity.
 - [Ankush Khanna](https://linkedin.com/in/ankushkhanna2)
