@@ -112,7 +112,22 @@ python prefect/etl_web_to_gcs.py
 python prefect/etl_gcs_to_bq.py
 ```
 
+## Dashboard
 
+![Basic_report jpg_page-0001](https://user-images.githubusercontent.com/69020112/235322122-e7b542cd-f888-4871-9dfb-e9e2597ee641.jpg)
+
+
+[Click here](https://lookerstudio.google.com/reporting/49229423-1c2a-44ba-931b-83a214490beb/page/hycOD) to see my Looker dashboard.
+
+* In graph 1 can be seen that most accidents take place in two states:
+
+    *28% of them occur in the state of California (CA)
+
+    *14% of them occur in the state of Florida (FL)
+
+* In graph 2 can be seen that almost all accidents, 2.5M, have a medium severity of 2.
+
+* In graph 3 can be seen that the most accidents, 1.1M, occur in a fair weather. Almost 700000 of them take place in the year of 2021.
 
 ## Instructors acknowledgements
 I appreciate the opportunity to attend this workshop. I am forever thankful for this opportunity.
