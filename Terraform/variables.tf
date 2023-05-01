@@ -4,6 +4,7 @@ locals {
 
 variable "project" {
   description = "Your GCP Project ID"
+  default = "data-engineer-project-384504"
 }
 
 variable "region" {
@@ -20,5 +21,5 @@ variable "storage_class" {
 variable "BQ_DATASET" {
   description = "BigQuery Dataset that raw data (from GCS) will be written to"
   type = string
-  default = "usa_accidents_data_all"
+  default = "de_project_dataset"
 }
