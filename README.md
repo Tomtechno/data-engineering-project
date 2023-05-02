@@ -1,4 +1,4 @@
-# US Accidents (2016 - 2021) - UNFINISHED FOR NOW
+# US Accidents (2016 - 2021)
 A Countrywide Traffic Accident Dataset (2016 - 2021)
 
 ![Car accident](https://user-images.githubusercontent.com/69020112/235061206-d1b063b6-147d-4be3-8dc4-db6ea9c50eb5.jpg)
@@ -56,7 +56,7 @@ PREREQUISITES
 * Make sure you have docker, make and git installed in your pc
 * Git clone the repo
 ```bash
-https://github.com/Tomtechno/data-engineering-zoomcamp.git
+git clone https://github.com/Tomtechno/data-engineering-zoomcamp.git
 ```
 * Make a virtual environment with python and install prefect. I chose python 3.9 as it is the recommended version
 ```bash
@@ -93,19 +93,22 @@ rm terraform_1.4.1_linux_amd64.zip
 ```
 - To initiate, plan and apply the infrastructure, adjust and run the following Terraform commands
 ```bash
-cd terraform/
+cd Terraform/
 terraform init
 terraform plan -var="project=<your-gcp-project-id>"
 terraform apply -var="project=<your-gcp-project-id>"
 ```
 4. Setup your orchestration
-- If you do not have a prefect workspace, sign-up for the prefect cloud and create a workspace [here](https://app.prefect.cloud/auth/login)
-- Create the [prefect blocks](https://docs.prefect.io/concepts/blocks/) via the cloud UI or adjust the variables in `/prefect/prefect_blocks.py` and run
-```bash
-python XXXXXXXXX 
-```
-- Adjust the keyfile location at `dbt/profiles.yml` to the path of your Google Cloud credentials JSON
-- To execute the flow, run the following commands in two different CL terminals
+- If you do not have a prefect workspace, sign-up for the prefect cloud
+- Create a workspace [here](https://app.prefect.cloud/auth/login) and an [API key](https://app.prefect.cloud/my/api-keys).
+- Add the previously created API key and the name of your workspace as repository secrets
+- Create the [prefect blocks](https://docs.prefect.io/concepts/blocks/) via the cloud UI
+     - run `prefect block register -m prefect_gcp` in the VSCode terminal in your virtual env (projectEnv)
+     - go to your workspace in prefect cloud
+        1. add gcs bucket block
+        2. name the block 'project-gcs' so you won't need to make any changes in the prefect flows; fill in the other fields with bucket name 
+        3. create a credentials block  with the name 'project-gcp-creds' if you don't want to change anything   
+- To execute the flow, run the following commands in two different terminals
 ```bash
 prefect agent start -q 'default'
 ```
@@ -113,6 +116,19 @@ prefect agent start -q 'default'
 python prefect/etl_web_to_gcs.py
 python prefect/etl_gcs_to_bq.py
 ```
+
+5. Execute DBT to create the result tables 
+- In the DBT develop tab you can connect to the project created and stored in this [repo](https://github.com/Tomtechno/data-engineering-project/Dbt).
+
+Now try running the following commands:
+
+```bash
+dbt run
+dbt test
+```
+When the job executed successfully you'll see the following tables/views created under the "dbt_tomtechno"
+![this1](https://user-images.githubusercontent.com/69020112/235795633-43059a78-fe53-4387-9fb1-4592b0611c7f.png)
+
 
 ## Dashboard
 
