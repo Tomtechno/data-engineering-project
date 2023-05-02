@@ -53,7 +53,6 @@ In order to have a good performance I got rid of the unnecesary features.
 
 ## Reproduce it yourself
 PREREQUISITES
-* Make sure you have docker, make and git installed in your pc
 * Git clone the repo
 ```bash
 git clone https://github.com/Tomtechno/data-engineering-zoomcamp.git
@@ -118,6 +117,15 @@ python prefect/etl_gcs_to_bq.py
 ```
 
 5. Execute DBT to create the result tables 
+- Following this [steps](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md) written by [MekongDelta-mind](https://github.com/MekongDelta-mind)
+IN THE STEP 6 MAKE SURE TO:
+- Name the dataset "dbt_tomtechno":
+
+IN THE STEP 6 MAKE SURE TO:
+- Git clone the next repo:
+```bash
+git@github.com:Tomtechno/data-engineering-project.git
+```
 - In the DBT develop tab you can connect to the project created and stored in this [repo](https://github.com/Tomtechno/data-engineering-project/Dbt).
 
 Now try running the following commands:
@@ -126,12 +134,12 @@ Now try running the following commands:
 dbt run
 dbt test
 ```
-When the job executed successfully you'll see the following tables/views created under the "dbt_tomtechno"
+When the job executed successfully you'll see the following tables/views created under the "dbt_tomtechno" dataset
 ![this1](https://user-images.githubusercontent.com/69020112/235795633-43059a78-fe53-4387-9fb1-4592b0611c7f.png)
 
 
 ## Dashboard
-
+* You can now query the data and connect it to looker to visualize the data with [Looker Studio](https://lookerstudio.google.com/navigation/reporting)
 ![Basic_report jpg_page-0001](https://user-images.githubusercontent.com/69020112/235322122-e7b542cd-f888-4871-9dfb-e9e2597ee641.jpg)
 
 
