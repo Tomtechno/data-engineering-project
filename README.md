@@ -78,7 +78,7 @@ gcloud auth application-default login
 ```
 2. Install all required dependencies into your environment
 ```bash
-pip install -r requirements.txt
+pip install -r Prefect/requirements.txt
 ```
 3. Setup your infrastructure
 - Assuming you are using Linux AMD64 run the following commands to install Terraform - if you are using a different OS please choose the correct version [here](https://developer.hashicorp.com/terraform/downloads) and exchange the download link and zip file name
