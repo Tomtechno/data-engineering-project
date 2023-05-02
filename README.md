@@ -107,7 +107,8 @@ terraform apply -var="project=<your-gcp-project-id>"
         1. add gcs bucket block
         2. name the block 'project-gcs' so you won't need to make any changes in the prefect flows; fill in the other fields with bucket name 
         3. create a credentials block  with the name 'project-gcp-creds' if you don't want to change anything   
-- To execute the flow, run the following commands in two different terminals
+- To execute the flow, run the following commands in two different terminals  
+- 
 In the first one you will execute:
 ```bash
 prefect agent start -q 'default'
@@ -120,7 +121,7 @@ In the second one you will install Kaggle library to be able to download the dat
 ```bash
 !pip install -q kaggle
 ```
-Now you will ned an API .json key. So go to the right top. Click on your personal icon, go to "Your profile". Then click on "Account" go to API and "Create New Token"
+Now you will ned an API .json key from Kaggle. So go to [Kaggle](https://www.kaggle.com/) and make your account. Now, go to the right top. Click on your personal icon, go to "Your profile". Then click on "Account" go to API and "Create New Token"
 Replace your key in "Prefect/etl_web_to_gcs.py". MAKE SURE NOT TO SHARE YOUR PRIVATE KEY.
 Now you can run the next flows to load the dataset from your storage to the Google Cloud Storage (GCS). And then from the GCS to Big Query.
 ```bash
@@ -129,8 +130,10 @@ python Prefect/etl_gcs_to_bq.py
 ```
 
 5. Execute DBT to create the result tables 
-- Following this [steps](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md) written by [MekongDelta-mind](https://github.com/MekongDelta-mind)
-IN THE STEP 6 MAKE SURE TO:
+- Follow this [steps](https://github.com/DataTalksClub/data-engineering-zoomcamp/blob/main/week_4_analytics_engineering/dbt_cloud_setup.md) written by [MekongDelta-mind](https://github.com/MekongDelta-mind)  
+
+
+IN THE STEP 5 MAKE SURE TO:
 - Name the dataset "dbt_tomtechno":
 
 IN THE STEP 6 MAKE SURE TO:
@@ -142,10 +145,18 @@ git@github.com:Tomtechno/data-engineering-project.git
 
 Now try running the following commands:
 
+First:
+
+```bash
+dbt build
+```
+
+And then:
+
 ```bash
 dbt run
-dbt test
 ```
+
 When the job executed successfully you'll see the following tables/views created under the "dbt_tomtechno" dataset
 ![this1](https://user-images.githubusercontent.com/69020112/235795633-43059a78-fe53-4387-9fb1-4592b0611c7f.png)
 
