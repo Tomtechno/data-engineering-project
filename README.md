@@ -18,7 +18,7 @@ Overall, understanding the trends and patterns of car accidents in the USA is es
 The objective of this project is to give answers to the following questions:
 * Which are the most dangerous states in the United States
 * Which are the most dangerous years in the United States
-* What is the weather that leads most of the traffic accidents.
+* What is the weather that leads most of the traffic accidents
 
 
 In the following link you can dive into the United States driving statistics.
