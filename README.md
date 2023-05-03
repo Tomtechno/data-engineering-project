@@ -15,7 +15,10 @@ An estimated 42,915 people died in car crashes in the United States in 2021, a 1
 
 Overall, understanding the trends and patterns of car accidents in the USA is essential for promoting public safety, supporting economic growth, and improving the quality of life for all Americans.
 
-With this project I would like to know which are the most dangerous states in the United States, which was the most dangerous year and what is the weather that leaded most of the accidents.
+With this project I would like to know:
+* Which are the most dangerous states in the United States
+* Which are the most dangerous years in the United States
+* What is the most common weather that leads to traffic accidents
 
 
 In the following link you can dive into the United States driving statistics.
